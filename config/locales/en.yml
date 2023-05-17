@@ -1,0 +1,18 @@
+en:
+  activerecord:
+    attributes:
+      cmor/translations/translation:
+        id: ID
+        interpolations: Interpolations
+        is_proc: Is proc?
+        key: Key
+        locale: Language
+        value: Value
+        created_at: Created at
+        updated_at: Udpated at
+    models:
+      cmor/translations/translation:
+        one: Translation
+        other: Translations
+  routes:
+    cmor_translations_engine: translations
