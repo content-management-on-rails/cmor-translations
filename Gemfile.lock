@@ -1,8 +1,36 @@
+GIT
+  remote: https://github.com/content-management-on-rails/cmor
+  revision: 7eaae4d50bfe8718becbcb51a8699d67fb9694b6
+  branch: main
+  specs:
+    cmor (0.0.61.pre)
+
+GIT
+  remote: https://github.com/robotex82/rails-dummy.git
+  revision: 5920215f0458c693e9c2f8cfa5df313dec074f21
+  branch: feature/ruby-3-2-compatibility
+  specs:
+    rails-dummy (0.1.1)
+      railties
+
+PATH
+  remote: ../cmor/cmor-core
+  specs:
+    cmor-core (0.0.61.pre)
+      bootstrap-kaminari-views
+      cmor (= 0.0.61.pre)
+      delayed_job_active_record
+      kaminari
+      rails (>= 7.0)
+      rao-view_helper (>= 0.0.49.pre)
+      request_store_rails
+      route_translator
+
 PATH
   remote: .
   specs:
     cmor-translations (4.1.2)
-      cmor_core (>= 0.0.5.pre)
+      cmor-core (>= 0.0.5.pre)
       i18n-active_record
       rails (>= 5.2.0)
 
@@ -76,8 +104,9 @@ GEM
       tzinfo (~> 2.0)
     addressable (2.8.4)
       public_suffix (>= 2.0.2, < 6.0)
-    ansi (1.5.0)
     ast (2.4.2)
+    bootsnap (1.17.1)
+      msgpack (~> 1.2)
     bootstrap-kaminari-views (0.0.5)
       kaminari (>= 0.13)
       rails (>= 3.1)
@@ -91,16 +120,6 @@ GEM
       rack-test (>= 0.6.3)
       regexp_parser (>= 1.5, < 3.0)
       xpath (~> 3.2)
-    cmor (0.0.60.pre)
-    cmor_core (0.0.60.pre)
-      bootstrap-kaminari-views
-      cmor (= 0.0.60.pre)
-      delayed_job_active_record
-      kaminari
-      rails (>= 5.0.0)
-      rao-view_helper (>= 0.0.20.pre)
-      request_store_rails
-      route_translator
     coderay (1.1.3)
     concurrent-ruby (1.2.2)
     coveralls (0.7.1)
@@ -113,7 +132,7 @@ GEM
     date (3.3.3)
     delayed_job (4.1.11)
       activesupport (>= 3.0, < 8.0)
-    delayed_job_active_record (4.1.7)
+    delayed_job_active_record (4.1.8)
       activerecord (>= 3.0, < 8.0)
       delayed_job (>= 3.0, < 5)
     diff-lcs (1.5.0)
@@ -192,6 +211,7 @@ GEM
     mime-types-data (3.2023.0218.1)
     mini_mime (1.1.2)
     minitest (5.18.0)
+    msgpack (1.7.2)
     multi_json (1.15.0)
     nenv (0.3.0)
     net-imap (0.3.4)
@@ -240,8 +260,6 @@ GEM
     rails-dom-testing (2.0.3)
       activesupport (>= 4.2.0)
       nokogiri (>= 1.6)
-    rails-dummy (0.1.0)
-      railties
     rails-html-sanitizer (1.5.0)
       loofah (~> 2.19, >= 2.19.1)
     rails-i18n (7.0.7)
@@ -259,7 +277,7 @@ GEM
     rao (0.0.49.pre)
     rao-shoulda_matchers (0.0.49.pre)
       rao
-    rao-view_helper (0.0.49.pre)
+    rao-view_helper (0.0.52.pre)
       rails (>= 6.1)
       rao
     rb-fsevent (0.11.2)
@@ -274,9 +292,9 @@ GEM
       mime-types (>= 1.16, < 4.0)
       netrc (~> 0.8)
     rexml (3.2.5)
-    route_translator (13.1.0)
-      actionpack (>= 5.2, < 7.1)
-      activesupport (>= 5.2, < 7.1)
+    route_translator (14.1.1)
+      actionpack (>= 6.1, < 7.2)
+      activesupport (>= 6.1, < 7.2)
     rspec (3.12.0)
       rspec-core (~> 3.12.0)
       rspec-expectations (~> 3.12.0)
@@ -318,10 +336,6 @@ GEM
       docile (~> 1.1)
       simplecov-html (~> 0.11)
       simplecov_json_formatter (~> 0.1)
-    simplecov-console (0.9.1)
-      ansi
-      simplecov
-      terminal-table
     simplecov-html (0.12.3)
     simplecov_json_formatter (0.1.4)
     sprockets (4.2.0)
@@ -335,8 +349,6 @@ GEM
     sync (0.5.0)
     term-ansicolor (1.7.1)
       tins (~> 1.0)
-    terminal-table (3.0.2)
-      unicode-display_width (>= 1.1.1, < 3)
     thor (1.2.2)
     timeout (0.3.2)
     tins (1.32.1)
@@ -358,7 +370,9 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  bootsnap
   capybara
+  cmor-core!
   cmor-translations!
   coveralls
   factory_bot_rails
@@ -367,14 +381,12 @@ DEPENDENCIES
   guard-rails
   guard-rspec
   pry-rails
-  rails-dummy
+  rails-dummy!
   rails-i18n
   rao-shoulda_matchers
   rspec-rails
   rubocop
   shoulda-matchers
-  simplecov
-  simplecov-console
   sprockets-rails
   sqlite3
 
